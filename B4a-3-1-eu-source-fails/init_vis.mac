@@ -1,0 +1,29 @@
+# init_vis.mac - Visualization Initialization Macro
+
+# Use the best available visualization driver
+# This will automatically choose available drivers like OpenGL, RayTracer, etc.
+#/vis/open OGL 600x600-0+0
+/vis/open OGLSX
+
+# Set drawing/viewing options
+/vis/viewer/set/viewpointThetaPhi 60 30
+/vis/viewer/set/style surface
+/vis/viewer/set/lineSegmentsPerCircle 100
+/vis/viewer/set/autoRefresh true
+/vis/scene/add/axes 0 0 0 2 cm
+/vis/scene/add/scale 0 0 0 2 cm
+/vis/scene/endOfEventAction accumulate
+/vis/scene/endOfRunAction accumulate
+
+# Add geometry to the scene
+/vis/drawVolume
+
+# Set verbosity (optional)
+/vis/verbose warnings
+
+# Set the background color (optional)
+/vis/set/background white
+
+# Refresh and start
+/vis/viewer/flush
+/vis/sceneHandler/attach
